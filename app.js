@@ -13,6 +13,6 @@ learnDigest.controller('playgroundCtrl', function($scope){
 
 learnDigest.controller('internalCtrl', function($scope){
     var vm = this;
-    
-    vm.secret = "shhhhhhh..." + $scope.playGround.force; 
+    vm.playGround = $scope.$parent.vm;
+    vm.secret = "shhhhhhh..." + vm.playGround.force; 
 });
