@@ -8,17 +8,17 @@
     <script src="app.js"></script>
   </head>
   <body ng-app="learndigest">
-    <div ng-controller="playgroundCtrl">
-            How strong is the force {{force}}
-        <div>The real value of secret is: {{secret}}</div>  <! Here $scope of internalCtrl is not available>
-        <input type="number" ng-model="force">
-        <button ng-click="reset()">Reset</button>
+    <div ng-controller="playgroundCtrl as playGround">
+            How strong is the force {{playGround.force}}
+        <input type="number" ng-model="playGround.force">   <! Here $scope of internalCtrl is available using "ControllerAs syntax : playground">
+        <button ng-click="playGround.reset()">Reset</button>
 
-        <div ng-controller="internalCtrl">
-            <div>The secret is: {{secret}}</div>
-            <div>The internal force {{force}}</div> <! Here $scope of playgroundCtrl is available>
-            <input type="number" ng-model="force">
+        <div ng-controller="internalCtrl as internal">
+            <div>The secret is: {{internal.secret}}</div>
+            <div>The internal force {{playGround.force}}</div> <! Here $scope of playgroundCtrl is also available>
+            <input type="number" ng-model="playGround.force">
         </div>
     </div>
   </body>
 </html>
+
