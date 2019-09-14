@@ -9,13 +9,14 @@
   </head>
   <body ng-app="learndigest">
     <div ng-controller="playgroundCtrl as vm">
-            How strong is the force {{vm.userProperties.force}}    <! Here $scope of ng-if is available using "ControllerAs syntax : vm">
-        
-        <div ng-bind="vm.userProperties.force"></div>
-        <div ng-if="vm.enableForceEdit">
-            <input type="number" ng-model="vm.userProperties.force">
-        </div>
+            How strong is the force {{vm.force}}    <! Here $scope of ng-if is available using "ControllerAs syntax : vm">
+        <input type="number" ng-model="vm.force">
         <button ng-click="vm.reset()">Reset</button>
+        <div ng-if="vm.force %2 == 0">
+            <div ng-controller="internalCtrl as vm">
+                The internal controller has arrived.!
+            </div>
+        </div>
     </div>
   </body>
 </html>
