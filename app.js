@@ -1,13 +1,18 @@
 var learnDigest = angular.module('learndigest', []);
 
 learnDigest.controller('playgroundCtrl', function($scope){
-    $scope.force = 30;
+    var vm = this;
+    //$scope.playGround = vm; // ControllerAs syntax
     
-    $scope.reset = function(){
-      $scope.force = 0;  
+    vm.force = 30;
+    
+    vm.reset = function(){
+      vm.force = 0;  
     };
 }); 
 
 learnDigest.controller('internalCtrl', function($scope){
-   $scope.secret = "shhhhhhh..." + $scope.force; 
+    var vm = this;
+    
+    vm.secret = "shhhhhhh..." + $scope.playGround.force; 
 });
